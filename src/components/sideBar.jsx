@@ -1,17 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import dashSvg from '../assets/svg/dashboard.svg'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const sideBar = ({ isactive, setIsactive }) => {
 
   const [hovered, setHovered] = useState(false);
+  const location = useLocation();
 
+  
+  
   const menuItems = [
     { id: "Dashboard", name: 'Dashboard', icon: dashSvg, path: '/' },
-    { id: "Employees", name: 'Employees', icon: dashSvg, path: '/src/components/EmpDash.jsx' },
+    { id: "Employees", name: 'Employees', icon: dashSvg, path: '/EmpDash' },
     // { id: 3, name: 'Salaries', icon: dashSvg,  },
-    { id: 'LogIn / SignUp', name: 'LogIn / SignUp', icon: dashSvg, path: '/src/components/LogIn.jsx' },
+    { id: 'LogIn / SignUp', name: 'LogIn / SignUp', icon: dashSvg, path: '/LogIn' },
   ];
+  
+
+
+  useEffect(() => {
+    // Set the active item based on the current pathname
+    const currentItem = menuItems.find(item => item.path === location.pathname);
+    if (currentItem) {
+      setIsactive(currentItem.id);
+    }
+  }, [location.pathname, setIsactive, menuItems]);
+
 
 
   return (
@@ -28,14 +42,14 @@ const sideBar = ({ isactive, setIsactive }) => {
         {
           menuItems.map((item) => (
 
-            <Link to={item.path} onClick={() => setIsactive(item.id)}>
+            <Link to={item.path} onClick={() => setIsactive(item.id)} key={item.id}>
               <div className="SBItems flex gap-4 items-center my-5" >
                 <div
                   className="icon"
                   onMouseEnter={() => setHovered(true)}
                   onMouseLeave={() => setHovered(false)}
                 >
-                  <img src={dashSvg} alt="" className={`w-8  ${isactive === item.id ? 'border border-blue-700' : 'border-none'}`} />
+                  <img src={item.icon} alt="" className={`w-8  ${isactive === item.id ? 'border border-blue-700' : 'border-none'}`} />
                 </div>
 
                 <div
