@@ -33,7 +33,7 @@ const sideBar = ({ isactive, setIsactive }) => {
       {/* <div className='h-[65vh] flex items-center'> */}
 
 
-      <div className='sideBarr bg-white w-fit ml-10 m-5 px-6 py-1 rounded-xl relative'>
+      <div className='sideBarr bg-white w-fit ml-10 m-5 px-6 py-1 rounded-xl relative h-fit'>
         {/* <div className="SBItems flex gap-4 items-center my-5">
           <div className="icon"><img src={dashSvg} alt="" className='w-8' /></div>
           <div className="heading">Dashboard</div>
@@ -45,11 +45,11 @@ const sideBar = ({ isactive, setIsactive }) => {
             <Link to={item.path} onClick={() => setIsactive(item.id)} key={item.id}>
               <div className="SBItems flex gap-4 items-center my-5" >
                 <div
-                  className="icon"
+                  className="icon w-8"
                   onMouseEnter={() => setHovered(true)}
                   onMouseLeave={() => setHovered(false)}
                 >
-                  <img src={item.icon} alt="" className={`w-8  ${isactive === item.id ? 'border border-blue-700' : 'border-none'}`} />
+                  <img src={item.icon}  alt="" className={`w-8  ${isactive === item.id ? 'border border-blue-700' : 'border-none'}`} />
                 </div>
 
                 <div

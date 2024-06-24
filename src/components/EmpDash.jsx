@@ -1,13 +1,61 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
 
 const EmpDash = () => {
+
+  const [employees, setEmployees] = useState([]);
+
+
+
+  useEffect(() => {
+    fetch('/public/data/EmpData.json')
+    .then(response => response.json())
+    .then(data => setEmployees(data))
+    .catch(error => 
+      console.error('Error fetching employee data', error)
+    );
+  }, []);
+   
   return (
-    <div>
-      EmpDashhhhhh
+    <>
+
+    <div className="EmpDash bg-white p-7 mt-5 mr-10 rounded-xl h-[70vh]">
+      Empolyee Table 
+
+      <div className="empTable m-5 h-[58vh] border-t pb-5 overflow-y-scroll scrollbar-hide ">
+        <table className='emp-Table  w-full '>
+         <thead className='h-19 text-left'>
+          <tr className='border-b-2'>
+            <th className="p-5">ID</th>
+            <th className="p-5">Name</th>
+            <th className="p-5">Role</th>
+            <th className="p-5">Department</th>
+            <th className="p-5">E-mail</th>
+          </tr>
+         </thead>
+
+         <tbody>
+          {
+            employees.map(employee => (
+              <tr key={employee.emp_id} className='border-b'>
+                <td className="p-4">{employee.emp_id}</td>
+                <td className="p-4">{employee.name}</td>
+                <td className="p-4">{employee.role}</td>
+                <td className="p-4">{employee.department}</td>
+                <td className="p-4">{employee.email}</td>
+              </tr>
+            ))
+          }
+         </tbody>
+        </table>
+      </div>
+    
 
 
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque porro deserunt consectetur inventore commodi, iusto ullam nostrum nihil blanditiis nam deleniti repellat accusantium molestiae alias eligendi cum esse nisi. Eius ipsam voluptate dicta facere ipsa cumque dignissimos quis atque ea reprehenderit, quo soluta nam? Reiciendis commodi incidunt, officiis, ex perferendis laboriosam quisquam deleniti recusandae consectetur laudantium eius dolorem adipisci perspiciatis consequuntur, mollitia itaque odio ipsam fugit nam magni. Ullam veniam ad unde pariatur exercitationem voluptatibus, doloremque nisi odio, quaerat distinctio iure eum fugiat quos non delectus laborum ipsa voluptatum dolorum ex id at? Ipsum ab, voluptatibus accusantium similique perspiciatis vitae totam officia enim suscipit asperiores eius! Ad porro animi maxime error similique pariatur unde inventore quibusdam! Magnam optio porro veritatis. Incidunt, accusantium reprehenderit mollitia repellat distinctio aspernatur ab? Omnis deleniti quidem porro dolore ipsa mollitia nemo deserunt quibusdam! Repudiandae aliquam officiis, assumenda enim ducimus nesciunt. Ratione facilis quod doloremque illo dignissimos repudiandae modi obcaecati maxime non aperiam. Alias reiciendis, ad, animi nam necessitatibus similique, asperiores ipsam deserunt praesentium nemo officia aliquam quas! Accusamus non sunt ut animi ab eum esse inventore voluptas perferendis, itaque quod corrupti, assumenda ratione, error qui tenetur. Iusto facilis voluptatibus tempora libero totam. Ad cumque eum dolorem iste ratione numquam modi quae consequuntur debitis aspernatur? Magni ad minima harum esse eveniet? Explicabo distinctio id, provident amet tempore adipisci, nam magni eius laudantium modi rem aperiam itaque voluptate doloremque pariatur? Doloribus odio fuga aspernatur, quisquam natus obcaecati adipisci blanditiis nam laboriosam vero!
+
     </div>
+      
+    </>
   )
 }
 

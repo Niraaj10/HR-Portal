@@ -21,12 +21,12 @@ function App() {
         HR 
         </h2> */}
 
-        <div className="dashCont flex ">
-
+           <div className="dashCont flex gap-5">
 
           <SideBar isactive={isactive} setIsactive={setIsactive} />
 
 
+          <div className="ContainPages flex-auto">
           <Routes>
             <Route path='/' element={<Dashboard />} />
 
@@ -35,6 +35,7 @@ function App() {
             <Route path='/LogIn' element={<LogIn />} />
 
           </Routes>
+          </div>
         </div>
 
       </div>
