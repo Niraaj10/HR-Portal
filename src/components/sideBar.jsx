@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import dashSvg from '../assets/svg/dashboard.svg'
+import dashSvg from '../assets/svg/db.svg';
+import activeDB from '../assets/svg/Adb.svg';
+import EmpT from '../assets/svg/EmpT.svg';
+import activeET from '../assets/svg/AET.svg';
+import LI from '../assets/svg/login.svg'
+import activeLI from '../assets/svg/ALogin.svg';
 import { Link, useLocation } from 'react-router-dom';
 
 const sideBar = ({ isactive, setIsactive }) => {
@@ -10,10 +15,10 @@ const sideBar = ({ isactive, setIsactive }) => {
   
   
   const menuItems = [
-    { id: "Dashboard", name: 'Dashboard', icon: dashSvg, path: '/' },
-    { id: "Employees", name: 'Employees', icon: dashSvg, path: '/EmpDash' },
+    { id: "Dashboard", name: 'Dashboard', icon: dashSvg, activeIcon: activeDB, path: '/' },
+    { id: "Employees", name: 'Employees', icon: EmpT, activeIcon: activeET, path: '/EmpDash' },
     // { id: 3, name: 'Salaries', icon: dashSvg,  },
-    { id: 'LogIn / SignUp', name: 'LogIn / SignUp', icon: dashSvg, path: '/LogIn' },
+    { id: 'LogIn / SignUp', name: 'LogIn / SignUp', icon: LI, activeIcon: activeLI, path: '/LogIn' },
   ];
   
 
@@ -45,11 +50,14 @@ const sideBar = ({ isactive, setIsactive }) => {
             <Link to={item.path} onClick={() => setIsactive(item.id)} key={item.id}>
               <div className="SBItems flex gap-4 items-center my-5" >
                 <div
-                  className="icon w-8"
+                  className="icon"
                   onMouseEnter={() => setHovered(true)}
                   onMouseLeave={() => setHovered(false)}
                 >
-                  <img src={item.icon}  alt="" className={`w-8  ${isactive === item.id ? 'border border-blue-700' : 'border-none'}`} />
+                  <img 
+                    src={isactive === item.id ? item.activeIcon : item.icon}  
+                    alt={item.name}
+                    className={`w-8 transition-all duration-300  ${isactive === item.id ? 'scale-125' : 'w-8  border-none'}`} />
                 </div>
 
                 <div
