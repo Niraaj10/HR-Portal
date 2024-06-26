@@ -9,7 +9,7 @@ body {
     background-color: #F1F2F6;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: "Lexend", sans-serif;
@@ -24,4 +24,16 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
-  
+
+.toggle-button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-weight: bold;
+}
+
+.toggle-button.active {
+    color: #007BFF;
+    border-bottom: 2px solid #007BFF;
+}

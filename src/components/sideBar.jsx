@@ -18,7 +18,7 @@ const sideBar = ({ isactive, setIsactive }) => {
     { id: "Dashboard", name: 'Dashboard', icon: dashSvg, activeIcon: activeDB, path: '/' },
     { id: "Employees", name: 'Employees', icon: EmpT, activeIcon: activeET, path: '/EmpDash' },
     // { id: 3, name: 'Salaries', icon: dashSvg,  },
-    { id: 'LogIn / SignUp', name: 'LogIn / SignUp', icon: LI, activeIcon: activeLI, path: '/LogIn' },
+    { id: 'LogIn / SignUp', name: 'LogIn / SignUp', icon: LI, activeIcon: activeLI, path: '/Auth' },
   ];
   
 

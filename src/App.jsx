@@ -4,7 +4,7 @@ import Navbar from './components/navbar';
 import Dashboard from './components/Dashboard';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import EmpDash from './components/EmpDash';
-import LogIn from './components/LogIn';
+import Auth from './components/Auth';
 
 function App() {
 
@@ -32,7 +32,7 @@ function App() {
 
             <Route path='/EmpDash' element={<EmpDash />} />
 
-            <Route path='/LogIn' element={<LogIn />} />
+            <Route path='/Auth' element={<Auth />} />
 
           </Routes>
           </div>
