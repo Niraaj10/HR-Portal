@@ -8,6 +8,7 @@ import Auth from './components/Auth';
 
 function App() {
 
+  const [user, setUser] = useState(null);
   const [isactive, setIsactive] = useState('Dashboard');
 
 
@@ -32,7 +33,7 @@ function App() {
 
             <Route path='/EmpDash' element={<EmpDash />} />
 
-            <Route path='/Auth' element={<Auth />} />
+            <Route path='/Auth' element={<Auth setUser={setUser}/>} />
 
           </Routes>
           </div>

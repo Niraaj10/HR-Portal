@@ -18,7 +18,7 @@ const Auth = ({ setUser }) => {
     const endpoint = isLogin ? 'login' : 'signup';
     const payload = isLogin ? {email, password} : { name , position, email, password, profilePhoto };
 
-    const response = await fetch(`http://localhost:5173/${endpoint}`, {
+    const response = await fetch(`http://localhost:5000/${endpoint}`, {
       method: 'POST',
       headers: {
         'Content-Type' : 'application/json',
@@ -79,7 +79,7 @@ const Auth = ({ setUser }) => {
 
 
         <div className="divImg w-[50%]">
-          <img src={ImgDiv} alt="" className='h-[606px] object-cover '/>
+          {/* <img src={ImgDiv} alt="" className='h-[570px] object-cover '/> */}
         </div>
 
       </div>
