@@ -91,20 +91,24 @@
   },
   {
     "emp_id": "E011",
-    "name": "Niraj",
+    "name": "Niraj Alone",
     "role": "Developer",
     "department": "",
     "email": "aloneneeraj71@gmail.com",
     "password": "pass",
-    "profilePhoto": ""
+    "profilePhoto": "",
+    "phone": "012-345-6789",
+    "address": "123 Poplar Street, Springfield, IL"
   },
   {
     "emp_id": "E012",
-    "name": "Niraj",
+    "name": "Niraj Alone",
     "role": "devvvv",
     "department": "",
     "email": "aloneneeraj71@gmail.com",
     "password": "pass",
-    "profilePhoto": ""
+    "profilePhoto": "",
+    "phone": "012-345-6789",
+    "address": "123 Poplar Street, Springfield, IL"
   }
 ]
