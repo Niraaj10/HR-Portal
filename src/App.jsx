@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import EmpDash from './components/EmpDash';
 import Auth from './components/Auth';
+import Profile from './components/Profile';
 
 function App() {
 
@@ -34,6 +35,8 @@ function App() {
             <Route path='/EmpDash' element={<EmpDash />} />
 
             <Route path='/Auth' element={<Auth setUser={setUser}/>} />
+
+            <Route path='/profile' element={user ? <Profile user={user} setUser={setUser}/> : <Auth setUser={setUser}/> } />
 
           </Routes>
           </div>

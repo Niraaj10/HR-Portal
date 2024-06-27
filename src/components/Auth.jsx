@@ -6,7 +6,7 @@ const Auth = ({ setUser }) => {
 
   const [isLogin, setIsLogin] = useState(true);
   const [name, setName] = useState('');
-  const [position, setPosition] = useState('');
+  const [role, setRole] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [profilePhoto, setProfilePhoto] = useState('');
@@ -16,7 +16,7 @@ const Auth = ({ setUser }) => {
   const handeAuth = async (e) => {
     e.preventDefault();
     const endpoint = isLogin ? 'login' : 'signup';
-    const payload = isLogin ? {email, password} : { name , position, email, password, profilePhoto };
+    const payload = isLogin ? {email, password} : { name , role, email, password, profilePhoto };
 
     const response = await fetch(`http://localhost:5000/${endpoint}`, {
       method: 'POST',
@@ -26,7 +26,7 @@ const Auth = ({ setUser }) => {
       body: JSON.stringify(payload),
     });
     
-    console.log(payload);
+    // console.log(payload);
 
     const data = await response.json();
     if (response.status === 200) {
@@ -57,7 +57,7 @@ const Auth = ({ setUser }) => {
             {!isLogin && (
               <>
               <input type='text' value={name} onChange={(e) => setName(e.target.value)} placeholder='Name' required className='mx-16 my-2 outline-none shadow-sm border px-5 py-2 rounded-xl'/>
-              <input type='text' value={position} onChange={(e) => setPosition(e.target.value)} placeholder='Position' required className='mx-16 my-2 outline-none shadow-sm border px-5 py-2 rounded-xl'/>
+              <input type='text' value={role} onChange={(e) => setRole(e.target.value)} placeholder='Role' required className='mx-16 my-2 outline-none shadow-sm border px-5 py-2 rounded-xl'/>
               {/* <input type='text' value={profilePhoto} onChange={(e) => setProfilePhoto(e.target.value)} placeholder='Profile Photo' required className='mx-16 my-2 outline-none shadow-sm border px-5 py-2 rounded-xl'/> */}
               </>
             )}

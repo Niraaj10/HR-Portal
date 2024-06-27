@@ -90,9 +90,19 @@
     "address": "123 Poplar Street, Springfield, IL"
   },
   {
-    "id": "E011",
-    "name": "fgg",
-    "position": "devv",
+    "emp_id": "E011",
+    "name": "Niraj",
+    "role": "Developer",
+    "department": "",
+    "email": "aloneneeraj71@gmail.com",
+    "password": "pass",
+    "profilePhoto": ""
+  },
+  {
+    "emp_id": "E012",
+    "name": "Niraj",
+    "role": "devvvv",
+    "department": "",
     "email": "aloneneeraj71@gmail.com",
     "password": "pass",
     "profilePhoto": ""

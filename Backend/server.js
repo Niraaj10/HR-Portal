@@ -11,16 +11,17 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post('/signup', (req, res) => {
-    const {name, position, email, password, profilePhoto } = req.body;
+    const {name, role, email, password, profilePhoto } = req.body;
 
     fs.readFile(EMP_DATAFILE, (err, data) => {
         if(err) throw err;
 
         const employees = JSON.parse(data);
         const newEmp = {
-            id: 'E0' + (employees.length+1),
+            emp_id: 'E0' + (employees.length+1),
             name,
-            position,
+            role,
+            department: "",
             email,
             password,
             profilePhoto,
@@ -33,6 +34,30 @@ app.post('/signup', (req, res) => {
         });
     });
 });
+
+
+
+
+app.post('/login', (req, res) => {
+    const {email, password } = req.body;
+
+    fs.readFile(EMP_DATAFILE, (err, data) => {
+        if(err) throw err;
+
+        const employees = JSON.parse(data);
+        const employee = employees.find(emp => emp.email === email && emp.password === password );
+        console.log(employee);
+        
+        if (employee) {
+            res.status(200).send({ message: 'Login successful', employee });
+            console.log('Login successful');
+        } else {
+            res.status(401).send({ message: 'Invalid  email or Password'});
+        }
+    });
+});
+
+
 
 
 

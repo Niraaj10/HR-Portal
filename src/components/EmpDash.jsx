@@ -8,7 +8,7 @@ const EmpDash = () => {
 
 
   useEffect(() => {
-    fetch('/public/data/EmpData.json')
+    fetch('/src/data/EmpData.json')
     .then(response => response.json())
     .then(data => setEmployees(data))
     .catch(error => 
