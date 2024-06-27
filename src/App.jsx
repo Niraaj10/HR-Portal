@@ -25,7 +25,8 @@ function App() {
 
            <div className="dashCont flex gap-5">
 
-          <SideBar isactive={isactive} setIsactive={setIsactive} />
+          <SideBar isactive={user ? 'Profile' : 'Login / SignUp'} setIsactive={setIsactive} />
+          {/* <SideBar isactive={isactive} setIsactive={setIsactive} /> */}
 
 
           <div className="ContainPages flex-auto">

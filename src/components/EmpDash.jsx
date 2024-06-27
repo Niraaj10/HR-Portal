@@ -25,7 +25,7 @@ const EmpDash = () => {
       <div className="empTable m-5 h-[58vh] border-t pb-5 overflow-y-scroll scrollbar-hide ">
         <table className='emp-Table  w-full '>
          <thead className='h-19 text-left'>
-          <tr className='border-b-2'>
+          <tr className='border-b-2 '>
             <th className="p-5">ID</th>
             <th className="p-5">Name</th>
             <th className="p-5">Role</th>

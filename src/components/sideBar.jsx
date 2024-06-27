@@ -7,7 +7,7 @@ import LI from '../assets/svg/login.svg'
 import activeLI from '../assets/svg/ALogin.svg';
 import { Link, useLocation } from 'react-router-dom';
 
-const sideBar = ({ isactive, setIsactive }) => {
+const sideBar = ({ isactive, setIsactive, user }) => {
 
   const [hovered, setHovered] = useState(false);
   const location = useLocation();
@@ -18,7 +18,8 @@ const sideBar = ({ isactive, setIsactive }) => {
     { id: "Dashboard", name: 'Dashboard', icon: dashSvg, activeIcon: activeDB, path: '/' },
     { id: "Employees", name: 'Employees', icon: EmpT, activeIcon: activeET, path: '/EmpDash' },
     // { id: 3, name: 'Salaries', icon: dashSvg,  },
-    { id: 'LogIn / SignUp', name: 'LogIn / SignUp', icon: LI, activeIcon: activeLI, path: '/Auth' },
+    { id: 'Login / SignUp', name: 'Login / SignUp', icon: LI, activeIcon: activeLI, path: '/Auth' },
+    { id: 'Profile', name: 'Profile', icon: LI, activeIcon: activeLI, path: '/profile' },
   ];
   
 

@@ -82,33 +82,32 @@
   },
   {
     "emp_id": "E010",
-    "name": "Daniel Harris",
+    "name": "Johnny Sins",
     "role": "Sales Manager",
     "department": "Sales",
     "email": "daniel.harris@example.com",
+    "password": "pass",
     "phone": "012-345-6789",
     "address": "123 Poplar Street, Springfield, IL"
   },
   {
     "emp_id": "E011",
-    "name": "Niraj Alone",
-    "role": "Developer",
+    "name": "Amit ",
+    "role": "devvvv",
     "department": "",
-    "email": "aloneneeraj71@gmail.com",
+    "email": "noddyyy10@gmail.com",
     "password": "pass",
     "profilePhoto": "",
-    "phone": "012-345-6789",
-    "address": "123 Poplar Street, Springfield, IL"
+    "address": "jalgoan",
+    "phone": "1234567890"
   },
   {
     "emp_id": "E012",
-    "name": "Niraj Alone",
+    "name": "amit",
     "role": "devvvv",
     "department": "",
-    "email": "aloneneeraj71@gmail.com",
+    "email": "noddyyy10@gmail.com",
     "password": "pass",
-    "profilePhoto": "",
-    "phone": "012-345-6789",
-    "address": "123 Poplar Street, Springfield, IL"
+    "profilePhoto": ""
   }
 ]

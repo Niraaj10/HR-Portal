@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import ProfilePic from '../assets/img/ProfilePic.jpg';
 import Edit from '../assets/svg/Edit.svg'
 
@@ -9,9 +9,53 @@ const Profile = ({ user }) => {
         email: user.email,
         role: user.role,
         profilePhoto: user.profilePhoto,
-        add: user.address,
-        PhoneNo: user.phone
+        address: user.address,
+        phone: user.phone
     });
+
+    const nameInputRef = useRef(null);
+    const emailInputRef = useRef(null);
+    const addressInputRef = useRef(null);
+    const phoneInputRef = useRef(null);
+    const profilePhotoInputRef = useRef(null);
+
+
+    const InputChange = (e) => {
+        const { name, value} = e.target;
+
+        setUserData({ ...userData, [name]: value,});
+        console.log(userData);
+    };
+
+    const EditClick = (inputRef) => {
+        inputRef.current.focus();
+        console.log(inputRef.current.value);
+    }
+
+    const ProfileUpdate = async (e) => {
+        e.preventDefault();
+        console.log(userData);
+        try {
+            const response = await fetch('http://localhost:5000/updateProfile', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
+            });
+
+            console.log(userData)
+
+            const result = await response.json();
+            if (response.ok) {
+                console.log('Profile updated successfully:', result);
+            } else {
+                console.error('Error updating profile:', result.message);
+            }
+        } catch (error) {
+            console.error('Error updating Profile:', error);
+        }
+    };
 
 
     return (
@@ -47,63 +91,93 @@ const Profile = ({ user }) => {
                     <span className='mb-10 text-2xl text-[#3354F4]'>PERSONAL INFORMATION</span>
 
 
-                    <form action="">
+                    <form onSubmit={ProfileUpdate}>
 
 
 
                         <div className="NameEdit flex gap-10 my-5">
                             <input
                                 type="text"
-                                name='Name'
-                                value={userData.name}
-                                onChange=''
+                                name='name'
+                                // value={userData.name}
+                                placeholder={userData.name}
+                                onChange={InputChange}
                                 className='input border border-[#3353f468] rounded-2xl py-2 px-4  text-gray-500 w-[450px]'
+                                ref={nameInputRef}
                             />
-                            <img src={Edit} alt="" />
+                            <img 
+                             src={Edit} 
+                             alt=""
+                             onClick={() => EditClick(nameInputRef)} 
+                             className='cursor-pointer'/>
                         </div>
 
                         <div className="NameEdit flex gap-10 my-5">
                             <input
                                 type="email"
-                                name='Name'
-                                value={userData.email}
-                                onChange=''
+                                name='email'
+                                // value={userData.email}
+                                placeholder={userData.email}
+                                onChange={InputChange}
                                 className='input border border-[#3353f468] rounded-2xl py-2 px-4  text-gray-500 w-[450px]'
+                                ref={emailInputRef}
                             />
-                            <img src={Edit} alt="" />
+                            <img 
+                             src={Edit} 
+                             alt=""
+                             onClick={() => EditClick(emailInputRef)}
+                             className='cursor-pointer' />
                         </div>
 
                         <div className="NameEdit flex gap-10 my-5">
                             <input
                                 type="text"
-                                name='Name'
-                                value={userData.add}
-                                onChange=''
+                                name='address'
+                                // value={userData.add}
+                                placeholder={userData.address}
+                                onChange={InputChange}
                                 className='input border border-[#3353f468] rounded-2xl py-2 px-4 text-gray-500 w-[450px]'
+                                ref={addressInputRef}
                             />
-                            <img src={Edit} alt="" />
+                            <img 
+                             src={Edit} 
+                             alt=""
+                             onClick={() => EditClick(addressInputRef)}
+                             className='cursor-pointer' />
                         </div>
 
                         <div className="NameEdit flex gap-10 my-5">
                             <input
                                 type="tel"
-                                name='Name'
-                                value={userData.PhoneNo}
-                                onChange=''
+                                name='phone'
+                                // value={userData.PhoneNo}
+                                placeholder={userData.phone}
+                                onChange={InputChange}
                                 className='input border border-[#3353f468] rounded-2xl py-2 px-4 text-gray-500 w-[450px]'
+                                ref={phoneInputRef}
                             />
-                            <img src={Edit} alt="" />
+                            <img 
+                             src={Edit} 
+                             alt=""
+                             onClick={() => EditClick(phoneInputRef)} 
+                             className='cursor-pointer'/>
                         </div>
 
                         <div className="NameEdit flex gap-10 my-5">
                             <input
                                 type="image"
-                                name='Name'
-                                value={userData.profilePhoto}
-                                onChange=''
+                                name='profilePhoto'
+                                // value={userData.profilePhoto}
+                                placeholder={userData.profilePhoto}
+                                onChange={InputChange}
                                 className='input border border-[#3353f468] rounded-2xl py-2 px-4 text-gray-500 w-[450px]'
+                                ref={profilePhotoInputRef}
                             />
-                            <img src={Edit} alt="" />
+                            <img 
+                            src={Edit} 
+                            alt=""
+                            onClick={() => EditClick(profilePhotoInputRef)} 
+                            className='cursor-pointer'/>
                         </div>
 
                         <button type='submit' className='bg-[#3354F4] py-3 rounded-xl text-white w-full'>Change Information</button>
