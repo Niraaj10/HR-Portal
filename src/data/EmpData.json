@@ -109,5 +109,14 @@
     "email": "noddyyy10@gmail.com",
     "password": "pass",
     "profilePhoto": ""
+  },
+  {
+    "emp_id": "E013",
+    "name": "bulbul",
+    "role": "DevOp",
+    "department": "",
+    "email": "bulbul@gmail.com",
+    "password": "pass",
+    "profilePhoto": ""
   }
 ]

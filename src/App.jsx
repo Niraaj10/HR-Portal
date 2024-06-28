@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SideBar from './components/sideBar';
 import Navbar from './components/navbar';
 import Dashboard from './components/Dashboard';
@@ -13,6 +13,14 @@ function App() {
   const [isactive, setIsactive] = useState('Dashboard');
 
 
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('user');
+    if(loggedInUser){
+      setUser(JSON.parse(loggedInUser));
+    }
+  }, []);
+
+
 
   return (
     <>
@@ -25,8 +33,8 @@ function App() {
 
            <div className="dashCont flex gap-5">
 
-          <SideBar isactive={user ? 'Profile' : 'Login / SignUp'} setIsactive={setIsactive} />
-          {/* <SideBar isactive={isactive} setIsactive={setIsactive} /> */}
+          {/* <SideBar isactive={user ? 'Profile' : 'Login'} setIsactive={setIsactive} /> */}
+          <SideBar isactive={isactive} setIsactive={setIsactive} />
 
 
           <div className="ContainPages flex-auto">
@@ -35,7 +43,7 @@ function App() {
 
             <Route path='/EmpDash' element={<EmpDash />} />
 
-            <Route path='/Auth' element={<Auth setUser={setUser}/>} />
+            {/* <Route path='/Auth' element={<Auth setUser={setUser}/>} /> */}
 
             <Route path='/profile' element={user ? <Profile user={user} setUser={setUser}/> : <Auth setUser={setUser}/> } />
 
