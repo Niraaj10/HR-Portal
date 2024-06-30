@@ -16,12 +16,19 @@ const sideBar = ({ isactive, setIsactive, user }) => {
   
   const menuItems = [
     { id: "Dashboard", name: 'Dashboard', icon: dashSvg, activeIcon: activeDB, path: '/' },
-    { id: "Employees", name: 'Employees', icon: EmpT, activeIcon: activeET, path: '/EmpDash' },
+    { id: "Employees", name: 'Employees', icon: EmpT, activeIcon: activeET, path: '/EmpDash', Pose: ['HR', 'Admin'] },
+    { id: "LeaveReq", name: 'Leave Request', icon: EmpT, activeIcon: activeET, path: '/LeaveReq', Pose: ['Employee'] },
     // { id: 3, name: 'Salaries', icon: dashSvg,  },
     // { id: 'Login', name: 'Login', icon: LI, activeIcon: activeLI, path: '/Auth' },
     { id: 'Profile', name: 'Profile', icon: LI, activeIcon: activeLI, path: '/profile' },
   ];
   
+  const filterItems = menuItems.filter(item => {
+      if (!item.Pose) {
+        return true;
+      }
+      return item.Pose.includes(user?.Pose);
+  });
 
 
   useEffect(() => {
@@ -46,7 +53,8 @@ const sideBar = ({ isactive, setIsactive, user }) => {
         </div> */}
 
         {
-          menuItems.map((item) => (
+          // menuItems.map((item) => (
+          filterItems.map((item) => (
 
             <Link to={item.path} onClick={() => setIsactive(item.id)} key={item.id}>
               <div className="SBItems flex gap-4 items-center my-5" >
