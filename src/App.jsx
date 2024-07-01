@@ -44,20 +44,9 @@ function App() {
           <Routes>
             <Route path='/' element={<Dashboard />} />
 
-            {/* {user?.Pose === 'HR' || user?.Pose === 'Admin' ? ( 
-              <Route path='/EmpDash' element={<EmpDash user={user}/>} />
-            ) : (
-              <Route path="/EmpDash" element={<Navigate to="/" />} />
-            )}
-
-            {user?.Pose === 'Employee' ? (
-              <Route path='/LeaveReq' element={<LeaveReq  user={user}/>} />
-            ) : (
-              <Route path="/LeaveReq" element={<Navigate to="/" />} />
-            )} */}
 
 
-            <Route path={user?.Pose === 'Employee' ? '/LeaveReq' : '/EmpDash'} element={user?.Pose === 'Employee' ? <LeaveReq  user={user} /> : <EmpDash user={user}/>  }  />
+            <Route path={user?.Pose === 'Employee' ? '/LeaveReq' : '/EmpDash'} element={user?.Pose === 'Employee' ? <LeaveReq  user={user} userRole={user?.Pose} userId={user.emp_id}/> : <EmpDash user={user}/>  }  />
 
             {/* <Route path={user?.Pose === 'HR' ? '/EmpDash' : '/LeaveReq'} element={user?.Pose === 'HR' ? <EmpDash user={user}/> : <LeaveReq  user={user} /> } /> */}
 
