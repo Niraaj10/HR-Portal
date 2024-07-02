@@ -69,7 +69,23 @@
     "department": "IT",
     "email": "robert.taylor@example.com",
     "phone": "890-123-4567",
-    "address": "654 Chestnut Street, Springfield, IL"
+    "address": "654 Chestnut Street, Springfield, IL",
+    "leaveRequests": [
+      {
+        "id": "1625567845678",
+        "reason": "Vacation",
+        "startDate": "2024-07-01",
+        "endDate": "2024-07-10",
+        "status": "Approved"
+      },
+      {
+        "id": "1625567845679",
+        "reason": "Medical",
+        "startDate": "2024-08-05",
+        "endDate": "2024-08-15",
+        "status": "Pending"
+      }
+    ]
   },
   {
     "emp_id": "E009",
@@ -78,7 +94,23 @@
     "department": "Marketing",
     "email": "sarah.white@example.com",
     "phone": "901-234-5678",
-    "address": "987 Spruce Street, Springfield, IL"
+    "address": "987 Spruce Street, Springfield, IL",
+    "leaveRequests": [
+      {
+        "id": "1625567845678",
+        "reason": "Vacation",
+        "startDate": "2024-07-01",
+        "endDate": "2024-07-10",
+        "status": "Approved"
+      },
+      {
+        "id": "1625567845679",
+        "reason": "Medical",
+        "startDate": "2024-08-05",
+        "endDate": "2024-08-15",
+        "status": "Pending"
+      }
+    ]
   },
   {
     "emp_id": "E010",
@@ -89,7 +121,47 @@
     "email": "daniel.harris@example.com",
     "password": "pass",
     "phone": "012-345-6789",
-    "address": "123 Poplar Street, Springfield, IL"
+    "address": "123 Poplar Street, Springfield, IL",
+    "leaveRequests": [
+      {
+        "id": "1625567845678",
+        "reason": "Vacation",
+        "startDate": "2024-07-01",
+        "endDate": "2024-07-10",
+        "status": "Approved"
+      },
+      {
+        "id": "1625567845679",
+        "reason": "Medical",
+        "startDate": "2024-08-05",
+        "endDate": "2024-08-15",
+        "status": "Pending"
+      },
+      {
+        "id": "ca9d171c-884e-495b-ab06-099b86dcc2fc",
+        "reason": "",
+        "startDate": "2024-07-03",
+        "endDate": "2024-07-04",
+        "lType": "Vacation",
+        "status": "Pending"
+      },
+      {
+        "id": "0c3af1a4-8e0a-4b8e-8fc6-3964c4472b55",
+        "reason": "",
+        "startDate": "2024-07-05",
+        "endDate": "2024-07-08",
+        "lType": "Casual",
+        "status": "Pending"
+      },
+      {
+        "id": "07f42b9c-92fe-453a-85d9-73456a268f67",
+        "reason": "",
+        "startDate": "2024-07-03",
+        "endDate": "2024-07-05",
+        "lType": "Other",
+        "status": "Pending"
+      }
+    ]
   },
   {
     "emp_id": "E011",
@@ -110,7 +182,23 @@
     "department": "",
     "email": "noddyyy10@gmail.com",
     "password": "pass",
-    "profilePhoto": ""
+    "profilePhoto": "",
+    "leaveRequests": [
+      {
+        "id": "1625567845678",
+        "reason": "Vacation",
+        "startDate": "2024-07-01",
+        "endDate": "2024-07-10",
+        "status": "Approved"
+      },
+      {
+        "id": "1625567845679",
+        "reason": "Medical",
+        "startDate": "2024-08-05",
+        "endDate": "2024-08-15",
+        "status": "Pending"
+      }
+    ]
   },
   {
     "emp_id": "E013",

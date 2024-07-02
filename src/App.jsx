@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem('user');
-    if(loggedInUser){
+    if (loggedInUser) {
       setUser(JSON.parse(loggedInUser));
     }
   }, []);
@@ -27,12 +27,12 @@ function App() {
     <>
       <div>
 
-        <Navbar user={user}/>
+        <Navbar user={user} />
         {/* <h2 className='bg-red-500 h-10'>
         HR 
         </h2> */}
 
-           <div className="dashCont flex gap-5">
+        <div className="dashCont flex gap-5">
 
           {/* <SideBar isactive={user ? 'Profile' : 'Login'} setIsactive={setIsactive} /> */}
           <SideBar isactive={isactive} setIsactive={setIsactive} user={user} />
@@ -41,22 +41,32 @@ function App() {
           <div className="ContainPages flex-auto">
 
 
-          <Routes>
-            <Route path='/' element={<Dashboard />} />
+            <Routes>
+              <Route path='/' element={<Dashboard />} />
+
+              {/* <Route
+                path="/LeaveReq"
+                element={user?.Pose === 'Employee' ? <LeaveReq user={user} userRole={user?.Pose} userId={user.emp_id} /> : <Navigate to="/EmpDash" />}
+              />
+
+              <Route
+                path="/EmpDash"
+                element={user?.Pose === 'HR' ? <EmpDash user={user} /> : <Navigate to="/LeaveReq" />}
+              /> */}
 
 
 
-            <Route path={user?.Pose === 'Employee' ? '/LeaveReq' : '/EmpDash'} element={user?.Pose === 'Employee' ? <LeaveReq  user={user} userRole={user?.Pose} userId={user.emp_id}/> : <EmpDash user={user}/>  }  />
+              <Route path={user?.Pose === 'Employee' ? '/LeaveReq' : '/EmpDash'} element={user?.Pose === 'Employee' ? <LeaveReq  user={user} userRole={user?.Pose} userId={user.emp_id}/> : <EmpDash user={user}/>  }  />
 
-            {/* <Route path={user?.Pose === 'HR' ? '/EmpDash' : '/LeaveReq'} element={user?.Pose === 'HR' ? <EmpDash user={user}/> : <LeaveReq  user={user} /> } /> */}
+              {/* <Route path={user?.Pose === 'HR' ? '/EmpDash' : '/LeaveReq'} element={user?.Pose === 'HR' ? <EmpDash user={user}/> : <LeaveReq  user={user} /> } /> */}
 
-            
 
-            {/* <Route path='/Auth' element={<Auth setUser={setUser}/>} /> */}
 
-            <Route path='/profile' element={user ? <Profile user={user} setUser={setUser}/> : <Auth setUser={setUser}/> } />
+              {/* <Route path='/Auth' element={<Auth setUser={setUser}/>} /> */}
 
-          </Routes>
+              <Route path='/profile' element={user ? <Profile user={user} setUser={setUser} /> : <Auth setUser={setUser} />} />
+
+            </Routes>
           </div>
         </div>
 

@@ -4,12 +4,14 @@ const fs = require('fs');
 const cors = require('cors');
 const { data } = require('autoprefixer');
 const app = express();
+const { v4: uuidv4 } = require('uuid')
 const PORT = 5000;
 
 const EMP_DATAFILE = '../src/data/EmpData.json';
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.json());
 
 
 // Sign Up
@@ -88,6 +90,77 @@ app.post('/updateProfile', (req, res) => {
             res.status(404).send({ message: 'Employee not found'});
         }
 
+    });
+});
+
+
+
+
+// Leave Request
+app.post('/LeaveReq', (req, res) => {
+    const { empId, reason, startDate, endDate, lType, status } = req.body;
+    const reqId = uuidv4(); 
+    const newReq = { id: reqId, reason, startDate, endDate, lType, status };
+
+    fs.readFile(EMP_DATAFILE, (err, data) => {
+        if (err) {
+            console.error('Error reading employee data file:', err);
+            return res.status(500).send({ message: 'Error reading employee data' });
+        }
+
+        try {
+            let employees = JSON.parse(data);
+            const empIndex = employees.findIndex(emp => emp.emp_id === empId);
+
+            if (empIndex === -1) {
+                console.log(`Employee with id ${empId} not found`);
+                return res.status(404).send({ message: 'Employee not found' });
+            }
+            if (!employees[empIndex].leaveRequests) {
+                employees[empIndex].leaveRequests = [];
+            }
+
+            // Add the new leave request to the employee's leaveRequests array
+            console.log(employees[empIndex]);
+            employees[empIndex].leaveRequests.push(newReq);
+
+            // Write updated data back to the JSON file
+            fs.writeFile(EMP_DATAFILE, JSON.stringify(employees, null, 2), (err) => {
+                if (err) {
+                    console.error('Error writing employee data file:', err);
+                    return res.status(500).send({ message: 'Error updating employee data' });
+                }
+                console.log('Leave request added successfully:', newReq);
+                res.status(201).send({ success: true, LeaveReq: newReq });
+            });
+        } catch (error) {
+            console.error('Error parsing employee data:', error);
+            res.status(500).send({ message: 'Error parsing employee data' });
+        }
+    });
+});
+
+
+
+
+// user with id
+app.get('/employees/:id', (req, res) => {
+    const id = req.params.id;
+
+    fs.readFile(EMP_DATAFILE, (err, data) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send({ message: 'Error reading employee data'});
+            return;
+        }
+
+        const employees = JSON.parse(data);
+        const employee = employees.find(emp => emp.emp_id === id);
+        if (!employee) {
+            res.status(404).send({ message: 'Employee not found'});
+        } else {
+            res.status(200).send(employee);
+        }
     });
 });
 

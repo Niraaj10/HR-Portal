@@ -33,7 +33,7 @@ const Auth = ({ setUser }) => {
       // console.log(`${isLogin ? 'Login' : 'Signup'} successful`, data);
       localStorage.setItem('user', JSON.stringify(data.employee));
       setUser(data.employee);
-      // console.log(data.employee);
+      console.log(data.employee);
       navigate('/profile');      
     } else {
       alert(data.message);

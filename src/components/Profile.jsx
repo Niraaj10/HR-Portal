@@ -11,7 +11,8 @@ const Profile = ({ user, setUser }) => {
         role: user.role,
         profilePhoto: user.profilePhoto,
         address: user.address,
-        phone: user.phone
+        phone: user.phone,
+        leaveRequests: {}
     });
 
     const navigate = useNavigate();
@@ -63,7 +64,7 @@ const Profile = ({ user, setUser }) => {
 
     useEffect(() => {
         const loggedInUser = localStorage.getItem('user');
-        console.log(loggedInUser);
+        // console.log(loggedInUser);
         if (!loggedInUser) {
             navigate('/login');
         }
