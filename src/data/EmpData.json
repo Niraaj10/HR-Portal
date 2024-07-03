@@ -129,7 +129,7 @@
         "startDate": "2024-07-03",
         "endDate": "2024-07-04",
         "lType": "Vacation",
-        "status": "Pending"
+        "status": "Approved"
       },
       {
         "id": "a861c437-53c5-49b0-99ab-8c02e28fe2e7",
@@ -137,7 +137,7 @@
         "startDate": "2024-07-04",
         "endDate": "2024-07-25",
         "lType": "Maternity",
-        "status": "Pending"
+        "status": "Approved"
       },
       {
         "id": "1e633834-8828-4121-8ad4-29b517e20d1c",
@@ -145,7 +145,7 @@
         "startDate": "2024-07-05",
         "endDate": "2024-07-10",
         "lType": "Medical",
-        "status": "Pending"
+        "status": "Rejected"
       },
       {
         "id": "29a60661-884d-4f68-a1e5-be0f60cf0b9a",
@@ -153,7 +153,7 @@
         "startDate": "2024-07-12",
         "endDate": "2024-07-26",
         "lType": "Medical",
-        "status": "Pending"
+        "status": "Rejected"
       },
       {
         "id": "458beb55-d831-4b66-ac0c-f448554a1149",
@@ -161,7 +161,7 @@
         "startDate": "2024-07-25",
         "endDate": "2024-07-19",
         "lType": "Maternity",
-        "status": "Pending"
+        "status": "Approved"
       }
     ]
   },

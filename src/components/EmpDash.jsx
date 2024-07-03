@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 
@@ -16,6 +17,30 @@ const EmpDash = () => {
       );
   }, []);
 
+
+  const handleReq = async (empId, leaveId, status) => {
+    try {
+        const response = await axios.put(`http://localhost:5000/employees/${empId}/leaveRequests/${leaveId}`, { status });
+
+        if (response.status === 200) {
+          setEmployees(prevEmps => 
+            prevEmps.map(emp => 
+              emp.emp_id === empId ? {
+                ...emp, 
+                leaveRequests: emp.leaveRequests.map(leaveReq => 
+                  leaveReq.id === leaveId ? { ...leaveReq, status} : leaveReq
+                )
+              } : emp
+            )
+          );
+        } else {
+          console.error('Error updationg leave request: ', response.data.message);
+        }
+    } catch (error) {
+      console.error('Error updating...', error);
+    }
+  }
+
   return (
     <>
 
@@ -31,7 +56,8 @@ const EmpDash = () => {
                 <th className="p-5">Role</th>
                 <th className="p-5">Department</th>
                 <th className="p-5">E-mail</th>
-                <th className="p-5">Leave Reuest</th>
+                <th className="p-5 text-center">Leave Reuest</th>
+                {/* <th className="p-5">Leave Reuest</th> */}
               </tr>
             </thead>
 
@@ -51,7 +77,8 @@ const EmpDash = () => {
 
                           {
                             employee.leaveRequests.map(req => (
-                              req.status === 'Pending' ? (<div className="ReqCard border flex flex-col w-full m-4 p-4 py-3 rounded-xl border-blue-500 ">
+                              req.status === 'Pending' ? (<div className="ReqCard border flex w-full m-4 p-4 py-3 rounded-xl border-blue-500 gap-3">
+                                <div>
                                 <div className="date flex justify-between">
                                   <div className="strDate">{req.startDate}</div>to
                                   <div className="endDate">{req.endDate}</div>
@@ -60,14 +87,32 @@ const EmpDash = () => {
                                   <div className="Reason">{req.lType}</div>
                                   <div className="stat">{req.status === 'Pending' ? (req.status) : (" ")}</div>
                                 </div>
+                                </div>
+                                <div className="flex p-2 justify-center items-center">
+                                <button
+                                  className="mr-2 bg-blue-500 text-white px-2 py-2 rounded-xl"
+                                  onClick={() => handleReq(employee.emp_id, req.id, 'Approved')}
+                                >
+                                  Approve
+                                </button>
+                                <button
+                                  className="bg-red-500 text-white px-2 py-2 rounded-xl"
+                                  onClick={() => handleReq(employee.emp_id, req.id, 'Rejected')}
+                                >
+                                  Reject
+                                </button>
+                              </div>
                               </div>) : ('')
 
                             ))
                           }
+
+
                         </div>
+
                         // </div>
 
-                      ) : ( 
+                      ) : (
                         <div className="div h-[95px] flex flex-col justify-center">
                           No leave Request
                         </div>
