@@ -53,7 +53,7 @@ app.post('/login', (req, res) => {
 
         const employees = JSON.parse(data);
         const employee = employees.find(emp => emp.email === email && emp.password === password );
-        console.log(employee);
+        // console.log(employee);
         
         if (employee) {
             res.status(200).send({ message: 'Login successful', employee });
@@ -78,7 +78,7 @@ app.post('/updateProfile', (req, res) => {
         const employeeIndex = employees.findIndex(emp => emp.emp_id === emp_id);
 
         if(employeeIndex !== -1) {
-            employees[employeeIndex] = { ...employees[employeeIndex], name, email, role, profilePhoto, add, PhoneNo };
+            employees[employeeIndex] = { ...employees[employeeIndex], name, email, role, profilePhoto, address, phone };
 
             fs.writeFile(EMP_DATAFILE, JSON.stringify(employees, null, 2), (err) => {
                 if(err) throw err;

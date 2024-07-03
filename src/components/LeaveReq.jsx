@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LeaveReq = ({ user, userID, userRole }) => {
 
@@ -26,7 +28,7 @@ const LeaveReq = ({ user, userID, userRole }) => {
     };
 
     fetchLeaveHist();
-  }, [user.emp_id]);
+  }, [user.emp_id, leaveHist]);
 
 
 
@@ -54,7 +56,12 @@ const LeaveReq = ({ user, userID, userRole }) => {
         setEndDate('');
         setReason('');
         setLType('Vacation');
-        alert('Leave request submitted successfully!');
+        // alert('Leave request submitted successfully!');
+        toast('Leave Request Sendd!', {
+          style: {
+            boxShadow: 'rgba(116, 140, 255, 0.07) 0px 1px 2px, rgba(116, 140, 255, 0.07) 0px 2px 4px, rgba(116, 140, 255, 0.07) 0px 4px 8px, rgba(116, 140, 255, 0.07) 0px 8px 16px, rgba(116, 140, 255, 0.07) 0px 16px 32px, rgba(116, 140, 255, 0.07) 0px 32px 64px'
+          }
+        });
       } else {
         console.error('Error submitting leave request:', response.data.message);
         alert('Failed to submit leave request');
@@ -67,6 +74,20 @@ const LeaveReq = ({ user, userID, userRole }) => {
 
   return (
     <>
+
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition:Bounce
+      />
 
       <div className='LeavePage bg-white p-7 mt-5 mr-10 rounded-xl h-[70vh] flex gap-5'>
 
@@ -151,49 +172,31 @@ const LeaveReq = ({ user, userID, userRole }) => {
         <div className="ReqCont border-l-2 flex flex-col justify-center items-center">
 
           <div className='text-xl'>
-          Leave History
+            Leave History
           </div>
-
-          {/* <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Reason</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {user.leaveRequests.map(request => (
-                <tr key={request.id}>
-                  <td>{request.id}</td>
-                  <td>{request.reason}</td>
-                  <td>{request.startDate}</td>
-                  <td>{request.endDate}</td>
-                  <td>{request.status}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table> */}
-
 
           <div className='w-[350px] px-8 h-[500px] overflow-y-auto overflow-x-hidden scrollbar-hide'>
 
-          {
-            leaveHist.map(req => (
-              <div className="ReqCard border flex flex-col w-full m-4 p-4 rounded-xl border-blue-500 ">
-                <div className="date flex justify-between">
-                  <div className="strDate">{req.startDate}</div>to
-                  <div className="endDate">{req.endDate}</div>
+            {
+              leaveHist.slice().reverse().map(req => (
+                <div className="div">
+
+                  <div className="div">
+
+                  </div>
+                  <div className={`ReqCard shadow-lg flex flex-col w-full m-4 p-4 rounded-xl text-white ${req.status === 'Approved' ? 'bg-[#17e864] shadow-green-500/50' : req.status === 'Rejected' ? 'bg-[#ff3737] shadow-red-500/50' : 'bg-blue-500 s shadow-blue-500/50'} `}>
+                    <div className="date flex justify-between">
+                      <div className="strDate">{req.startDate}</div>to
+                      <div className="endDate">{req.endDate}</div>
+                    </div>
+                    <div className="Status flex justify-between">
+                      <div className="Reason">{req.lType}</div>
+                      <div className="stat">{req.status}</div>
+                    </div>
+                  </div>
                 </div>
-                <div className="Status flex justify-between">
-                  <div className="Reason">{req.lType}</div>
-                  <div className="stat">{req.status}</div>
-                </div>
-              </div>
-            ))
-          }
+              ))
+            }
           </div>
 
         </div>

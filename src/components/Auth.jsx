@@ -1,6 +1,10 @@
+
 import React, { useState } from 'react';
 import ImgDiv from '../assets/img/Logoo.webp';  
 import { useNavigate } from 'react-router-dom';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Auth = ({ setUser }) => {
 
@@ -33,10 +37,15 @@ const Auth = ({ setUser }) => {
       // console.log(`${isLogin ? 'Login' : 'Signup'} successful`, data);
       localStorage.setItem('user', JSON.stringify(data.employee));
       setUser(data.employee);
-      console.log(data.employee);
+      // console.log(data.employee);
       navigate('/profile');      
     } else {
-      alert(data.message);
+      // alert(data.message);
+      toast('Invalid Email or Password', {
+        style: {                        
+            boxShadow: 'rgba(116, 140, 255, 0.07) 0px 1px 2px, rgba(116, 140, 255, 0.07) 0px 2px 4px, rgba(116, 140, 255, 0.07) 0px 4px 8px, rgba(116, 140, 255, 0.07) 0px 8px 16px, rgba(116, 140, 255, 0.07) 0px 16px 32px, rgba(116, 140, 255, 0.07) 0px 32px 64px'
+        }
+    });
       console.error("Error :", data.message )
     }
 
@@ -47,6 +56,20 @@ const Auth = ({ setUser }) => {
 
   return (
     <>
+
+<ToastContainer
+                    position="top-center"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="colored"
+                    transition:Bounce
+                />
       <div className="authCont  bg-white  mt-5 mr-10 rounded-xl h-[70vh] flex ">
 
         <div className="formCont w-[50%] p-7 items-center flex flex-col">

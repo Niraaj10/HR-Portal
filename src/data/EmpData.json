@@ -162,12 +162,36 @@
         "endDate": "2024-07-19",
         "lType": "Maternity",
         "status": "Approved"
+      },
+      {
+        "id": "11859d7e-564a-4cf5-bf77-a890034483a3",
+        "reason": "",
+        "startDate": "2024-07-04",
+        "endDate": "2024-07-18",
+        "lType": "Casual",
+        "status": "Pending"
+      },
+      {
+        "id": "e7649325-38a9-43a0-8a53-95c73a9d47ff",
+        "reason": "",
+        "startDate": "2024-07-02",
+        "endDate": "2024-07-04",
+        "lType": "Medical",
+        "status": "Pending"
+      },
+      {
+        "id": "62ef597f-413e-47eb-838a-f7c869b92881",
+        "reason": "",
+        "startDate": "2024-07-04",
+        "endDate": "2024-07-04",
+        "lType": "Vacation",
+        "status": "Pending"
       }
     ]
   },
   {
     "emp_id": "E011",
-    "name": "Amit ",
+    "name": "Niraaj",
     "role": "devvvv",
     "department": "",
     "Pose": "HR",
@@ -204,11 +228,38 @@
   },
   {
     "emp_id": "E013",
-    "name": "bulbul",
+    "name": "user123",
     "role": "DevOp",
+    "Pose": "Employee",
     "department": "",
     "email": "bulbul@gmail.com",
     "password": "pass",
-    "profilePhoto": ""
+    "profilePhoto": "",
+    "leaveRequests": [
+      {
+        "id": "8bb40dc6-d568-4c81-89ef-0dc75fb3724d",
+        "reason": "",
+        "startDate": "2024-07-04",
+        "endDate": "2024-07-12",
+        "lType": "Vacation",
+        "status": "Pending"
+      },
+      {
+        "id": "467f022e-bd78-42af-9f2d-76ae6fd5f7ec",
+        "reason": "",
+        "startDate": "2024-07-04",
+        "endDate": "2024-07-05",
+        "lType": "Vacation",
+        "status": "Pending"
+      },
+      {
+        "id": "998728f9-a64d-4561-9d20-5e2ad08d5aa3",
+        "reason": "",
+        "startDate": "2024-07-04",
+        "endDate": "2024-07-04",
+        "lType": "Maternity",
+        "status": "Pending"
+      }
+    ]
   }
 ]

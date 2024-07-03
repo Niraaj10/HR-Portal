@@ -3,6 +3,9 @@ import ProfilePic from '../assets/img/ProfilePic.jpg';
 import Edit from '../assets/svg/Edit.svg'
 import { useNavigate } from 'react-router-dom';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Profile = ({ user, setUser }) => {
     const [userData, setUserData] = useState({
         emp_id: user.emp_id,
@@ -52,7 +55,21 @@ const Profile = ({ user, setUser }) => {
 
             const result = await response.json();
             if (response.ok) {
+                toast('Profile updated Successfully, Login Once Again!', {
+                    style: {                        
+                        boxShadow: 'rgba(116, 140, 255, 0.07) 0px 1px 2px, rgba(116, 140, 255, 0.07) 0px 2px 4px, rgba(116, 140, 255, 0.07) 0px 4px 8px, rgba(116, 140, 255, 0.07) 0px 8px 16px, rgba(116, 140, 255, 0.07) 0px 16px 32px, rgba(116, 140, 255, 0.07) 0px 32px 64px'
+                    },
+                    onClose: () => {
+                        localStorage.removeItem('user');
+                        setUser(null);
+                        navigate('/profile');
+                    }
+                });
                 console.log('Profile updated successfully:', result);
+                // localStorage.removeItem('user');
+                // setUser(null);
+                // navigate('/profile');
+
             } else {
                 console.error('Error updating profile:', result.message);
             }
@@ -60,6 +77,7 @@ const Profile = ({ user, setUser }) => {
             console.error('Error updating Profile:', error);
         }
     };
+
 
 
     useEffect(() => {
@@ -80,7 +98,19 @@ const Profile = ({ user, setUser }) => {
 
     return (
         <>
-
+            <ToastContainer
+                    position="top-center"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="colored"
+                    transition:Bounce
+                />
             <div className='Profile-Cont flex bg-white p-7 mt-5 mr-10 rounded-xl h-[70vh]'>
 
                 <div className="Pro-Card w-[50%] flex flex-col items-center mt-16">
@@ -204,8 +234,8 @@ const Profile = ({ user, setUser }) => {
 
                             <div className="NameEdit flex gap-16 my-5">
 
-                            <button type='submit' className='bg-[#3354F4] py-3 rounded-xl text-white w-full'>Change Information</button>
-                            <div></div>
+                                <button type='submit' className='bg-[#3354F4] py-3 rounded-xl text-white w-full'>Change Information</button>
+                                <div></div>
                             </div>
 
 
