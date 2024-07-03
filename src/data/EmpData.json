@@ -124,20 +124,6 @@
     "address": "123 Poplar Street, Springfield, IL",
     "leaveRequests": [
       {
-        "id": "1625567845678",
-        "reason": "Vacation",
-        "startDate": "2024-07-01",
-        "endDate": "2024-07-10",
-        "status": "Approved"
-      },
-      {
-        "id": "1625567845679",
-        "reason": "Medical",
-        "startDate": "2024-08-05",
-        "endDate": "2024-08-15",
-        "status": "Pending"
-      },
-      {
         "id": "ca9d171c-884e-495b-ab06-099b86dcc2fc",
         "reason": "",
         "startDate": "2024-07-03",
@@ -146,19 +132,35 @@
         "status": "Pending"
       },
       {
-        "id": "0c3af1a4-8e0a-4b8e-8fc6-3964c4472b55",
+        "id": "a861c437-53c5-49b0-99ab-8c02e28fe2e7",
         "reason": "",
-        "startDate": "2024-07-05",
-        "endDate": "2024-07-08",
-        "lType": "Casual",
+        "startDate": "2024-07-04",
+        "endDate": "2024-07-25",
+        "lType": "Maternity",
         "status": "Pending"
       },
       {
-        "id": "07f42b9c-92fe-453a-85d9-73456a268f67",
+        "id": "1e633834-8828-4121-8ad4-29b517e20d1c",
         "reason": "",
-        "startDate": "2024-07-03",
-        "endDate": "2024-07-05",
-        "lType": "Other",
+        "startDate": "2024-07-05",
+        "endDate": "2024-07-10",
+        "lType": "Medical",
+        "status": "Pending"
+      },
+      {
+        "id": "29a60661-884d-4f68-a1e5-be0f60cf0b9a",
+        "reason": "",
+        "startDate": "2024-07-12",
+        "endDate": "2024-07-26",
+        "lType": "Medical",
+        "status": "Pending"
+      },
+      {
+        "id": "458beb55-d831-4b66-ac0c-f448554a1149",
+        "reason": "",
+        "startDate": "2024-07-25",
+        "endDate": "2024-07-19",
+        "lType": "Maternity",
         "status": "Pending"
       }
     ]

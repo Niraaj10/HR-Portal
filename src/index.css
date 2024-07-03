@@ -37,3 +37,7 @@ body {
     color: #007BFF;
     border-bottom: 2px solid #007BFF;
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}

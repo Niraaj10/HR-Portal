@@ -142,10 +142,37 @@ app.post('/LeaveReq', (req, res) => {
 
 
 
+//Leave Request with user Id
+app.get('/leaveRequests/:id', (req, res) => {
+    const id = req.params.id;
+    console.log(id);
+    
+
+    fs.readFile(EMP_DATAFILE, (err, data) => {
+        if(err) throw err;
+
+        const employees = JSON.parse(data);
+        const employee = employees.find(emp => emp.emp_id === id);
+
+        // console.log(emp_id);
+        
+
+        if (employee) {
+            res.status(200).send(employee.leaveRequests || []);
+        } else {
+            res.status(404).send({ message: 'Employee not found' });
+        }
+    });
+});
+
+
+
 
 // user with id
 app.get('/employees/:id', (req, res) => {
     const id = req.params.id;
+    console.log(req.body);
+    
 
     fs.readFile(EMP_DATAFILE, (err, data) => {
         if (err) {
@@ -161,6 +188,37 @@ app.get('/employees/:id', (req, res) => {
         } else {
             res.status(200).send(employee);
         }
+    });
+});
+
+
+//for HR to update leave status
+app.put('/employees/:id/leaveRequests/:leaveId', (req, res) => {
+    const { id, leaveId } = req.params;
+    const { status } = req.body;
+
+    fs.readFile(EMP_DATAFILE, (err, data) => {
+        if(err) throw err;
+
+        const employees = JSON.parse(data);
+        const employeeIndex = employees.findIndex(emp => emp.emp_id === id);
+
+        if (employeeIndex === -1) {
+            return res.status(404).send({ message: 'Employee not found' });
+        }
+
+        const leaveReqIndex = employees[employeeIndex].leaveRequests.findIndex(req => req.id === leaveId);
+
+        if (leaveReqIndex === -1) {
+            return res.status(404).send({ message: 'Leave Request not found' });
+        }
+
+        employees[employeeIndex].leaveRequests[leaveReqIndex].status = status;
+
+        fs.writeFile(EMP_DATAFILE, JSON.stringify(employees, null, 2), (err) => {
+            if (err) throw err;
+            res.status(200).send({ message: 'Leave request status updated'});             
+        });
     });
 });
 

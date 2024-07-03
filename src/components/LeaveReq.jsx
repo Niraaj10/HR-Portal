@@ -9,11 +9,24 @@ const LeaveReq = ({ user, userID, userRole }) => {
   const [reason, setReason] = useState('');
   const [lType, setLType] = useState('Vaction');
 
-  // const [leaveHist, setLeaveHist] = useState([]);
+  const [leaveHist, setLeaveHist] = useState([]);
 
-  console.log(user.leaveRequests);
+  // console.log(user.emp_id);
 
-  const LeaveReqs = user.lleaveRequests;
+
+  // const LeaveReqs = user.leaveRequests;
+  useEffect(() => {
+    const fetchLeaveHist = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/leaveRequests/${user.emp_id}`);
+        setLeaveHist(response.data);
+      } catch (error) {
+        console.error('Error fetching leave requests: ', error);
+      }
+    };
+
+    fetchLeaveHist();
+  }, [user.emp_id]);
 
 
 
@@ -35,7 +48,7 @@ const LeaveReq = ({ user, userID, userRole }) => {
 
       if (response.data.success) {
         //Leave History update
-        setLeaveHist(prevHist => [...prevHist, response.data.LeaveReq]);
+        // setLeaveHist(prevHist => [...prevHist, response.data.LeaveReq]);
 
         setStartDate('');
         setEndDate('');
@@ -58,7 +71,7 @@ const LeaveReq = ({ user, userID, userRole }) => {
       <div className='LeavePage bg-white p-7 mt-5 mr-10 rounded-xl h-[70vh] flex gap-5'>
 
 
-        <div className="ReqCont flex flex-col items-center w-[70%]">
+        <div className="ReqCont flex flex-col items-center w-[70%] pr-0">
           <div className='text-xl mb-5 underline'>
             Leave Request
           </div>
@@ -135,8 +148,11 @@ const LeaveReq = ({ user, userID, userRole }) => {
 
         </div>
 
-        <div className="ReqCont">
+        <div className="ReqCont border-l-2 flex flex-col justify-center items-center">
+
+          <div className='text-xl'>
           Leave History
+          </div>
 
           {/* <table>
             <thead>
@@ -162,20 +178,23 @@ const LeaveReq = ({ user, userID, userRole }) => {
           </table> */}
 
 
+          <div className='w-[350px] px-8 h-[500px] overflow-y-auto overflow-x-hidden scrollbar-hide'>
+
           {
-            user.leaveRequests.map(req => (
+            leaveHist.map(req => (
               <div className="ReqCard border flex flex-col w-full m-4 p-4 rounded-xl border-blue-500 ">
                 <div className="date flex justify-between">
                   <div className="strDate">{req.startDate}</div>to
                   <div className="endDate">{req.endDate}</div>
                 </div>
                 <div className="Status flex justify-between">
-                  <div className="Reason">{req.reason}</div>
+                  <div className="Reason">{req.lType}</div>
                   <div className="stat">{req.status}</div>
                 </div>
               </div>
             ))
           }
+          </div>
 
         </div>
 
