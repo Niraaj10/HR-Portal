@@ -30,7 +30,7 @@
     "emp_id": "E004",
     "name": "Michael Brown",
     "role": "HR Specialist",
-    "department": "Human Resources",
+    "department": "Operations",
     "email": "michael.brown@example.com",
     "phone": "456-789-0123",
     "address": "321 Maple Street, Springfield, IL"
@@ -193,7 +193,7 @@
     "emp_id": "E011",
     "name": "Niraaj",
     "role": "devvvv",
-    "department": "",
+    "department": "IT",
     "Pose": "HR",
     "email": "noddyyy10@gmail.com",
     "password": "pass",
@@ -205,7 +205,7 @@
     "emp_id": "E012",
     "name": "amit",
     "role": "devvvv",
-    "department": "",
+    "department": "Finance",
     "email": "noddyyy10@gmail.com",
     "password": "pass",
     "profilePhoto": "",
@@ -228,10 +228,10 @@
   },
   {
     "emp_id": "E013",
-    "name": "user123",
+    "name": "Bulbul",
     "role": "DevOp",
     "Pose": "Employee",
-    "department": "",
+    "department": "Operations",
     "email": "bulbul@gmail.com",
     "password": "pass",
     "profilePhoto": "",
@@ -242,7 +242,7 @@
         "startDate": "2024-07-04",
         "endDate": "2024-07-12",
         "lType": "Vacation",
-        "status": "Pending"
+        "status": "Rejected"
       },
       {
         "id": "467f022e-bd78-42af-9f2d-76ae6fd5f7ec",
@@ -250,7 +250,7 @@
         "startDate": "2024-07-04",
         "endDate": "2024-07-05",
         "lType": "Vacation",
-        "status": "Pending"
+        "status": "Approved"
       },
       {
         "id": "998728f9-a64d-4561-9d20-5e2ad08d5aa3",
@@ -258,7 +258,7 @@
         "startDate": "2024-07-04",
         "endDate": "2024-07-04",
         "lType": "Maternity",
-        "status": "Pending"
+        "status": "Approved"
       }
     ]
   }
