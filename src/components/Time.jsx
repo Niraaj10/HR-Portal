@@ -34,7 +34,7 @@ const Time = () => {
             <img src={Moon} alt="" /> */}
             <div className="time-card bg-white p-5 mt-5 rounded-xl shadow-lg flex flex-col">
 
-                <div className="TimeCont w-72 pt-8 pb-10 flex justify-center  items-center gap-8 ">
+                <div className="TimeCont w-60 pt-8 pb-10 flex justify-center  items-center gap-5 ">
                     <div className="Icon">
                         {isAm ? <img src={Sun} alt="" className='icon-animation' /> : <img src={Moon} alt="" className='icon-animation' />}
                     </div>
@@ -48,9 +48,9 @@ const Time = () => {
                 </div>
 
 
-                <div className='flex flex-col pl-9'>
+                <div className='flex items-center pl-2 gap-4'>
                         Today: 
-                    <div className="date text-lg font-semibold pl-16">
+                    <div className="date text-lg font-semibold pl-1">
                         {formateDate(currentTime)}</div>
                 </div>
             </div>
