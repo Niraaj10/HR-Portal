@@ -177,7 +177,7 @@
         "startDate": "2024-07-02",
         "endDate": "2024-07-04",
         "lType": "Medical",
-        "status": "Pending"
+        "status": "Approved"
       },
       {
         "id": "62ef597f-413e-47eb-838a-f7c869b92881",
@@ -185,13 +185,21 @@
         "startDate": "2024-07-04",
         "endDate": "2024-07-04",
         "lType": "Vacation",
+        "status": "Rejected"
+      },
+      {
+        "id": "28fbb291-98e8-4f06-bf84-a3a69678baef",
+        "reason": "",
+        "startDate": "2024-07-05",
+        "endDate": "2024-07-19",
+        "lType": "Other",
         "status": "Pending"
       }
     ]
   },
   {
     "emp_id": "E011",
-    "name": "Niraaj",
+    "name": "Amit",
     "role": "devvvv",
     "department": "IT",
     "Pose": "HR",

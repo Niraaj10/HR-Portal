@@ -42,21 +42,22 @@ const DepPie = () => {
     const opts = {
         title: 'Employee Dept Distribution',
         pieHole: 0.4,
-        is3D: false,
-        colors: ['#8576FF', '#7BC9FF', '#A3FFD6', '#C47AFF', '#F0E9D2'],
+        is3D: true,
+        colors: ['#8576FF', '#3354F4', '#A3FFD6', '#C47AFF', '#F0E9D2'],
     };
 
 
   return (
     <>
-    <div className="w-[30vw] h-[30vh]">
+    <div className="w-[30vw] h-[30vh] rounded-2xl">
       {/* <h2>Employee Department Distribution</h2> */}
       <Chart
         chartType='PieChart'
-        width='100%'
-        height='250px'
+        width='500px'
+        height='300px'
         data={depData}
         options={opts}
+        className='rounded-2xl'
       />
     </div>
       
