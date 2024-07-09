@@ -57,42 +57,50 @@ body {
     0% {
 		animation-timing-function: ease-in;
 		opacity: 0;
-		transform: translateY(-50px);
+		/* transform: translateY(-50px); */
+		transform: scale(0px);
+		/* transform: rotate(10deg); */
 	}
 
 	38% {
 		animation-timing-function: ease-out;
 		opacity: 1;
-		transform: translateY(0);
+		/* transform: translateY(0); */
+		transform: scale(10px);
 	}
 
 	55% {
 		animation-timing-function: ease-in;
-		transform: translateY(-25px);
+		/* transform: translateY(-25px); */
+		transform: scale(30px);
 	}
 
 	72% {
 		animation-timing-function: ease-out;
-		transform: translateY(0);
+		/* transform: translateY(0); */
+		transform: scale(50px);
 	}
 
 	81% {
 		animation-timing-function: ease-in;
-		transform: translateY(-18px);
+		/* transform: translateY(-18px); */
+		transform: scale(30px);
 	}
 
 	90% {
 		animation-timing-function: ease-out;
-		transform: translateY(0);
+		/* transform: translateY(0);  */
+		transform: scale(15px); 
 	}
 
 	95% {
 		animation-timing-function: ease-in;
-		transform: translateY(-8px);
+		/* transform: translateY(-8px); */
+		transform: scale(0);
 	}
 
 	100% {
 		animation-timing-function: ease-out;
-		transform: translateY(0);
+		transform: scale(50px);
 	}
 }

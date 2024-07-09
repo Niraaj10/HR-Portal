@@ -49,12 +49,12 @@ const DepPie = () => {
 
   return (
     <>
-    <div className="w-[30vw] h-[30vh] rounded-2xl">
+    <div className="w-[30vw] h-[30vh] rounded-2xl ">
       {/* <h2>Employee Department Distribution</h2> */}
       <Chart
         chartType='PieChart'
         width='500px'
-        height='300px'
+        height='253.2px'
         data={depData}
         options={opts}
         className='rounded-2xl'
