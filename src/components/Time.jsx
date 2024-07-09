@@ -34,7 +34,7 @@ const Time = () => {
             <img src={Moon} alt="" /> */}
             <div className="time-card bg-white p-5 mt-5 rounded-xl flex flex-col hover:shadow-lg">
 
-                <div className="TimeCont w-60 pt-8 pb-14 flex justify-center  items-center gap-5 ">
+                <div className="TimeCont w-60 pt-8 pb-9 flex justify-center  items-center gap-5 ">
                     <div className="Icon">
                         {isAm ? <img src={Sun} alt="" className='icon-animation' /> : <img src={Moon} alt="" className='icon-animation' />}
                     </div>
@@ -52,6 +52,9 @@ const Time = () => {
                         Today : 
                     <div className="date text-lg font-semibold pl-1 text-black">
                         {formateDate(currentTime)}</div>
+                </div>
+                <div className='bg-[#3354F4] text-white w-fit p-3 px-5 rounded-xl ml-6'>
+                    <button>ADD Today's Work</button>
                 </div>
             </div>
         </div>
