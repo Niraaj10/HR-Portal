@@ -3,12 +3,13 @@ import DepPie from './DepPie'
 import AreaChart from './AreaChart'
 import Time from './Time'
 import EmpInfo from './empPer'
+import LeaveContainer from './LeaveContainer'
 
 const Dashboard = () => {
   return (
     <>
 
-      <div className='Dashboard border border-red-600 h-[75vh] mr-9 mt-[-6px]'>
+      <div className='Dashboard h-[75vh] mr-9 mt-[-25px]'>
 
         <div className='text-[#3354F4] font-bold '>
           DASHBOARD
@@ -35,11 +36,16 @@ const Dashboard = () => {
 
 
 
-          <div className='flex flex-col gap-5'>
+          <div className='flex flex-col gap-5 mt-[5px]'>
+
+            <div>
+              <LeaveContainer />
+            </div>
 
             <div className='PieChart rounded-2xl p-2 w-fit bg-white pr-8 hover:shadow-lg'>
               <DepPie />
             </div>
+
           </div>
 
         </div>
