@@ -42,7 +42,10 @@ function App() {
 
 
             <Routes>
-              <Route path='/' element={<Dashboard />} />
+              <Route path='/' element={user ? <Profile user={user} setUser={setUser} /> : <Auth setUser={setUser} />} />
+
+
+
 
               {/* <Route
                 path="/LeaveReq"
@@ -54,6 +57,9 @@ function App() {
                 element={user?.Pose === 'HR' ? <EmpDash user={user} /> : <Navigate to="/LeaveReq" />}
               /> */}
 
+
+
+              <Route path={user?.Pose === 'Employee' ? '/Dashboard' : '/Dashboard'} element={user?.Pose === 'Employee' ? <Dashboard /> : <Dashboard />  }  />
 
 
               <Route path={user?.Pose === 'Employee' ? '/LeaveReq' : '/EmpDash'} element={user?.Pose === 'Employee' ? <LeaveReq  user={user} userRole={user?.Pose} userId={user.emp_id}/> : <EmpDash user={user}/>  }  />

@@ -9,11 +9,11 @@ const Dashboard = () => {
   return (
     <>
 
-      <div className='Dashboard h-[75vh] mr-9 mt-[-25px]'>
+      <div className='Dashboard h-[75vh] mr-9 mt-[-25px] pt-5'>
 
-        <div className='text-[#3354F4] font-bold '>
+        {/* <div className='text-[#3354F4] font-bold '>
           DASHBOARD
-        </div>
+        </div> */}
 
 
         <div className='flex '>

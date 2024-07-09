@@ -11,6 +11,7 @@ const navbar = ({ user }) => {
 
                 <div className="Profile flex gap-6 items-center">
                     {user ? (
+                        <Link to='/profile'>
                         <div className='Profile flex gap-6 items-center'>
                             <div className="img w-32 border-[#3354F4] border rounded-full ">
                                 <img src={user.ProfilePic ? ProfilePic : ProfilePic} alt="" className='rounded-full' />
@@ -31,6 +32,7 @@ const navbar = ({ user }) => {
                                 </div>
                             </div>
                         </div>
+                        </Link>
 
 
                         // <div className="img w-32 border-[#3354F4] border rounded-full ">
