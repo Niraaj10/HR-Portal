@@ -72,7 +72,7 @@ const sideBar = ({ isactive, setIsactive, user }) => {
 
                 <div
                   className={`heading transition-opacity duration-300 absolute bg-white ml-9 p-7 w-48 rounded-xl z-10  ${hovered === true ? '' : 'hidden' }`}
-                  className={`heading transition-opacity duration-300 absolute bg-white ml-9 p-7 w-48 rounded-xl ${hovered === true ? 'opacity-100' : 'opacity-0' }`}
+                  // className={`heading transition-opacity duration-300 absolute bg-white ml-9 p-7 w-48 rounded-xl ${hovered === true ? 'opacity-100' : 'opacity-0' }`}
 
                 >
                   {item.name}
