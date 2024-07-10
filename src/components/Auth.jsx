@@ -70,7 +70,7 @@ const Auth = ({ setUser }) => {
                     theme="colored"
                     transition:Bounce
                 />
-      <div className="authCont  bg-white  mt-5 mr-10 rounded-xl h-[70vh] flex ">
+      <div className="authCont  bg-white  mt-5 mr-10 rounded-xl h-[70vh] flex shadow-2xl">
 
         <div className="formCont w-[50%] p-7 items-center flex flex-col">
 
@@ -105,8 +105,14 @@ const Auth = ({ setUser }) => {
         </div>
 
 
-        <div className="divImg w-[50%]">
+        <div className="divImg w-[50%] flex flex-col justify-center items-center bg-[#3353f4] rounded-xl">
           {/* <img src={ImgDiv} alt="" className='h-[570px] object-cover '/> */}
+
+          <div className='text-[250px] text-white font-anton drop-shadow-2xl '>HR</div>
+          <div>
+            <div className='text-white'>Hr : dummyhrr@gmail.com | pass</div>
+            <div className='text-white'>Emp : dummyemp@gmail.com | pass</div>
+          </div>
         </div>
 
       </div>

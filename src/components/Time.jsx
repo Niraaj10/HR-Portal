@@ -32,7 +32,7 @@ const Time = () => {
         <div>
             {/* <img src={Sun} alt="" />
             <img src={Moon} alt="" /> */}
-            <div className="time-card bg-white p-5 mt-5 rounded-xl flex flex-col hover:shadow-lg">
+            <div className="time-card bg-white p-5 mt-5 rounded-xl flex flex-col ">
 
                 <div className="TimeCont w-60 pt-8 pb-9 flex justify-center  items-center gap-5 ">
                     <div className="Icon">

@@ -114,11 +114,11 @@
   },
   {
     "emp_id": "E010",
-    "name": "Johnny Sins",
+    "name": "dummy Employee",
     "role": "Sales Manager",
     "department": "Sales",
     "Pose": "Employee",
-    "email": "daniel.harris@example.com",
+    "email": "dummyemp@gmail.com",
     "password": "pass",
     "phone": "012-345-6789",
     "address": "123 Poplar Street, Springfield, IL",
@@ -199,14 +199,14 @@
   },
   {
     "emp_id": "E011",
-    "name": "Amit",
+    "name": "dummy Hr",
     "role": "devvvv",
     "department": "IT",
     "Pose": "HR",
-    "email": "noddyyy10@gmail.com",
+    "email": "dummyhrr@gmail.com",
     "password": "pass",
     "profilePhoto": "",
-    "address": "jalgoan",
+    "address": "India",
     "phone": "1234567890"
   },
   {

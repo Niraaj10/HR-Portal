@@ -15,7 +15,8 @@ const sideBar = ({ isactive, setIsactive, user }) => {
   
   
   const menuItems = [
-    { id: "Dashboard", name: 'Dashboard', icon: dashSvg, activeIcon: activeDB, path: '/Dashboard' },
+    { id: "DashboardHr", name: 'Dashboard', icon: dashSvg, activeIcon: activeDB, path: '/DashboardHr', Pose: ['HR', 'Admin'] },
+    { id: "DashboardEmp", name: 'Dashboard', icon: dashSvg, activeIcon: activeDB, path: '/DashboardEmp', Pose: ['Employee'] },
     { id: "Employees", name: 'Employees', icon: EmpT, activeIcon: activeET, path: '/EmpDash', Pose: ['HR', 'Admin'] },
     { id: "LeaveReq", name: 'Leave Request', icon: EmpT, activeIcon: activeET, path: '/LeaveReq', Pose: ['Employee'] },
     // { id: 3, name: 'Salaries', icon: dashSvg,  },
@@ -46,7 +47,7 @@ const sideBar = ({ isactive, setIsactive, user }) => {
       {/* <div className='h-[65vh] flex items-center'> */}
 
 
-      <div className='sideBarr bg-white w-fit mt-14 ml-10 m-5 px-6 py-1 rounded-xl relative h-fit'>
+      <div className='sideBarr bg-white w-fit mt-14 ml-10 m-5 px-6 py-1 rounded-xl relative h-fit hover:shadow-xl'>
         {/* <div className="SBItems flex gap-4 items-center my-5">
           <div className="icon"><img src={dashSvg} alt="" className='w-8' /></div>
           <div className="heading">Dashboard</div>
@@ -70,8 +71,8 @@ const sideBar = ({ isactive, setIsactive, user }) => {
                 </div>
 
                 <div
-                  className={`heading transition-opacity duration-300 absolute bg-white ml-9 p-7 w-48 rounded-xl ${hovered === true ? 'opacity-100' : 'opacity-0'
-                    }`}
+                  className={`heading transition-opacity duration-300 absolute bg-white ml-9 p-7 w-48 rounded-xl z-10  ${hovered === true ? '' : 'hidden' }`}
+                  // className={`heading transition-opacity duration-300 absolute bg-white ml-9 p-7 w-48 rounded-xl ${hovered === true ? 'opacity-100' : 'opacity-0' }`}
 
                 >
                   {item.name}

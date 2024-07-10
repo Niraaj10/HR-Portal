@@ -22,7 +22,10 @@ const Dashboard = () => {
           <div className='pl-0 p-5 pt-0 mt-[-15px] flex flex-col gap-5' >
 
             <div className='flex gap-5'>
+              <div className='hover:shadow-lg'>
               <Time />
+
+              </div>
               <EmpInfo />
             </div>
 

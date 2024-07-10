@@ -86,6 +86,16 @@ const Profile = ({ user, setUser }) => {
         if (!loggedInUser) {
             navigate('/login');
         }
+
+        window.addEventListener('beforeunload', () => {
+            localStorage.removeItem('user');
+        });
+
+        return () => {
+            window.removeEventListener('beforeunload', () => {
+                localStorage.removeItem('user');
+            });
+        };
     }, [navigate]);
 
 

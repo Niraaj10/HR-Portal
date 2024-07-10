@@ -44,7 +44,7 @@ const EmpDash = () => {
   return (
     <>
 
-      <div className="EmpDash bg-white p-7 mt-5 mr-10 rounded-xl h-[70vh]">
+      <div className="EmpDash bg-white p-7 mt-5 mr-10 rounded-xl h-[70vh] hover:shadow-xl">
         Empolyee Table
 
         <div className="empTable m-5 h-[58vh] border-t pb-5 overflow-y-scroll scrollbar-hide ">

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import SideBar from './components/sideBar';
 import Navbar from './components/navbar';
-import Dashboard from './components/Dashboard';
+import Dashboardhr from './components/DashboardHr';
+import DashboardEmp from './components/DashboradEmp';
 import { Routes, Navigate, Route, BrowserRouter } from 'react-router-dom';
 import EmpDash from './components/EmpDash';
 import Auth from './components/Auth';
@@ -59,7 +60,8 @@ function App() {
 
 
 
-              <Route path={user?.Pose === 'Employee' ? '/Dashboard' : '/Dashboard'} element={user?.Pose === 'Employee' ? <Dashboard /> : <Dashboard />  }  />
+              <Route path={user?.Pose === 'Employee' ? '/DashboardEmp' : '/DashboardHr'} element={user?.Pose === 'Employee' ? <DashboardEmp /> : <Dashboardhr />  }  />
+
 
 
               <Route path={user?.Pose === 'Employee' ? '/LeaveReq' : '/EmpDash'} element={user?.Pose === 'Employee' ? <LeaveReq  user={user} userRole={user?.Pose} userId={user.emp_id}/> : <EmpDash user={user}/>  }  />
