@@ -60,7 +60,7 @@ const sideBar = ({ isactive, setIsactive, user }) => {
             <Link to={item.path} onClick={() => setIsactive(item.id)} key={item.id}>
               <div className="SBItems flex gap-4 items-center my-5" >
                 <div
-                  className="icon"
+                  className="icon"  
                   onMouseEnter={() => setHovered(true)}
                   onMouseLeave={() => setHovered(false)}
                 >
@@ -72,7 +72,7 @@ const sideBar = ({ isactive, setIsactive, user }) => {
 
                 <div
                   className={`heading transition-opacity duration-300 absolute bg-white ml-9 p-7 w-48 rounded-xl z-10  ${hovered === true ? '' : 'hidden' }`}
-                  // className={`heading transition-opacity duration-300 absolute bg-white ml-9 p-7 w-48 rounded-xl ${hovered === true ? 'opacity-100' : 'opacity-0' }`}
+                  className={`heading transition-opacity duration-300 absolute bg-white ml-9 p-7 w-48 rounded-xl ${hovered === true ? 'opacity-100' : 'opacity-0' }`}
 
                 >
                   {item.name}
